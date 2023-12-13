@@ -32,7 +32,7 @@ struct MainScreenView: View {
                     Divider()
                     
                     List(travelDestinations) { destination in
-                        ListCellView(info: destination.info, country: destination.country, dealDeadline: destination.dealDeadline)
+                        ListCellView(info: destination.info, location: destination.location, dealDeadline: destination.dealDeadline)
                             .listRowBackground(Color.clear)
                     }
                     .listStyle(PlainListStyle())
@@ -55,7 +55,7 @@ struct MainScreenView: View {
                 .background(Color(red: 0.16, green: 0.20, blue: 0.25))
                 .foregroundColor(.white)
                 
-                randomFactsButton()
+                randomTipsButton()
                 
             }
         }
@@ -138,7 +138,7 @@ struct DestinationDetailsView: View {
 struct ListCellView: View {
     //MARK: Properties
     let info: String
-    let country: String
+    let location: String
     let dealDeadline: String
     
     var body: some View {
@@ -147,7 +147,7 @@ struct ListCellView: View {
                 .font(Font.system(size: 18))
                 .lineLimit(2)
             
-            NavigationLink(country, destination: DestinationDetailsView())
+            NavigationLink(location, destination: DestinationDetailsView())
                 .fontWeight(.semibold)
             
             Text(dealDeadline)
@@ -158,21 +158,20 @@ struct ListCellView: View {
 }
 
 
-struct randomFactsButton: View {
+struct randomTipsButton: View {
     var body: some View {
         Button {
-            
         } label: {
-            Image(systemName: "magnifyingglass")
+            Image(systemName: "lightbulb")
                 .resizable()
-                .frame(width: 28, height: 28)
+                .frame(width: 22, height: 30)
                 .font(.title.weight(.semibold))
                 .padding()
                 .background(Color(red: 1.00, green: 0.46, blue: 0.23))
                 .opacity(0.9)
                 .foregroundColor(.white)
                 .clipShape(Circle())
-                .shadow(color: .white, radius: 4, x: 0.1, y: 0.1)
+                .shadow(color: .yellow, radius: 4, x: 0.1, y: 0.1)
         }
         .padding()
     }
