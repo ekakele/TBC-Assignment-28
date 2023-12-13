@@ -42,10 +42,13 @@ struct MainScreenView: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         Text("Welcome back, Nick!")
+                            .font(.title3)
+                            .bold()
                     }
                 }
             }
-            
+            .background(Color(red: 0.16, green: 0.20, blue: 0.25))
+            .foregroundColor(.white)
         }
     }
 }
@@ -55,14 +58,15 @@ struct MainScreenView: View {
 struct userAvatarView: View {
     var body: some View {
         Circle()
-            .frame(width: 60, height: 60)
-            .foregroundColor(Color(red: 0.35, green: 0.36, blue: 0.98))
+            .frame(width: 55, height: 55)
+            .foregroundColor(Color(red: 0.79, green: 0.83, blue: 0.89))
+            .opacity(0.8)
             .shadow(color: Color.gray, radius: 5, x: 0, y: 0)
             .overlay(
                 Image("userAvatar")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 60, height: 60)
+                    .frame(width: 55, height: 55)
                     .scaleEffect(1.2)
                     .offset(y: 13)
                     .clipShape(Circle())
@@ -72,29 +76,33 @@ struct userAvatarView: View {
 
 struct notificationIconView: View {
     var body: some View {
-        Circle()
-            .frame(width: 60, height: 60)
-            .foregroundColor(Color(red: 0.92, green: 0.92, blue: 1.00))
+//        Circle()
+//            .frame(width: 60, height: 60)
+//            .foregroundColor(Color(red: 0.79, green: 0.83, blue: 0.89))
+//            .opacity(0.8)
 //            .shadow(color: Color.gray, radius: 5, x: 0, y: 0)
-            .overlay(
+//            .overlay(
                 Image(systemName: "bell")
                     .resizable()
-                    .frame(width: 25, height: 25)
-                    .foregroundColor(.blue)
+                    .frame(width: 26, height: 26)
+                    .foregroundColor(.white)
+                    .opacity(0.8)
+                    .shadow(color: Color.gray, radius: 5, x: 0, y: 0)
+
                     .overlay(
                         Circle()
                             .frame(width: 20, height: 20)
                             .foregroundColor(Color(red: 1.00, green: 0.46, blue: 0.23))
-                            .offset(x: 8, y: -10)
+                            .offset(x: 10, y: -10)
                             .overlay(
                                 Text("3")
                                     .font(.system(size: 15))
                                     .bold()
                                     .foregroundColor(.white)
-                                    .offset(x: 8, y: -10)
+                                    .offset(x: 10, y: -10)
                             )
                     )
-            )
+//            )
 
     }
 }
