@@ -13,46 +13,54 @@ struct MainScreenView: View {
     var body: some View {
         
         NavigationView {
-            VStack(spacing: 0) {
+            ZStack(alignment: .bottomTrailing) {
                 
-                Image("posterOne")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.horizontal, 20)
-                    .shadow(radius: 10)
-                
-                Text("Winter Hot Deals 🔥")
-                    .font(.title2)
-                    .bold()
-                    .lineLimit(2)
-                    .padding(.bottom, 6)
-
-                Divider()
-                
-                List(travelDestinations) { destination in
-                    ListCellView(info: destination.info, country: destination.country, dealDeadline: destination.dealDeadline)
-                        .listRowBackground(Color.clear)
-                }
-                .listStyle(PlainListStyle())
-                .navigationTitle("Travel Destinations")
-                .navigationBarItems(
-                    leading: userAvatarView(),
-                    trailing: notificationIconView()
-                )
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text("Welcome back, Nick!")
-                            .font(.title3)
-                            .bold()
+                VStack(spacing: 0) {
+                    
+                    Image("posterOne")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal, 20)
+                        .shadow(radius: 10)
+                    
+                    Text("Winter Hot Deals 🔥")
+                        .font(.title2)
+                        .bold()
+                        .lineLimit(2)
+                        .padding(.bottom, 6)
+                    
+                    Divider()
+                    
+                    List(travelDestinations) { destination in
+                        ListCellView(info: destination.info, country: destination.country, dealDeadline: destination.dealDeadline)
+                            .listRowBackground(Color.clear)
+                    }
+                    .listStyle(PlainListStyle())
+                    .navigationTitle("Travel Destinations")
+                    //                .safeAreaInset(edge: .bottom, spacing: 0) {
+                    //                    floatingButtonRandomFacts()
+                    //                }
+                    .navigationBarItems(
+                        leading: userAvatarView(),
+                        trailing: notificationIconView()
+                    )
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            Text("Welcome back, Nick!")
+                                .font(.title3)
+                                .bold()
+                        }
                     }
                 }
+                .background(Color(red: 0.16, green: 0.20, blue: 0.25))
+                .foregroundColor(.white)
+                
+                randomFactsButton()
+                
             }
-            .background(Color(red: 0.16, green: 0.20, blue: 0.25))
-            .foregroundColor(.white)
         }
     }
 }
-
 
 //stays with main view
 struct userAvatarView: View {
@@ -76,34 +84,34 @@ struct userAvatarView: View {
 
 struct notificationIconView: View {
     var body: some View {
-//        Circle()
-//            .frame(width: 60, height: 60)
-//            .foregroundColor(Color(red: 0.79, green: 0.83, blue: 0.89))
-//            .opacity(0.8)
-//            .shadow(color: Color.gray, radius: 5, x: 0, y: 0)
-//            .overlay(
-                Image(systemName: "bell")
-                    .resizable()
-                    .frame(width: 26, height: 26)
-                    .foregroundColor(.white)
-                    .opacity(0.8)
-                    .shadow(color: Color.gray, radius: 5, x: 0, y: 0)
-
+        //        Circle()
+        //            .frame(width: 60, height: 60)
+        //            .foregroundColor(Color(red: 0.79, green: 0.83, blue: 0.89))
+        //            .opacity(0.8)
+        //            .shadow(color: Color.gray, radius: 5, x: 0, y: 0)
+        //            .overlay(
+        Image(systemName: "bell")
+            .resizable()
+            .frame(width: 26, height: 26)
+            .foregroundColor(.white)
+            .opacity(0.8)
+            .shadow(color: Color.gray, radius: 5, x: 0, y: 0)
+        
+            .overlay(
+                Circle()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(Color(red: 1.00, green: 0.46, blue: 0.23))
+                    .offset(x: 10, y: -10)
                     .overlay(
-                        Circle()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(red: 1.00, green: 0.46, blue: 0.23))
+                        Text("3")
+                            .font(.system(size: 15))
+                            .bold()
+                            .foregroundColor(.white)
                             .offset(x: 10, y: -10)
-                            .overlay(
-                                Text("3")
-                                    .font(.system(size: 15))
-                                    .bold()
-                                    .foregroundColor(.white)
-                                    .offset(x: 10, y: -10)
-                            )
                     )
-//            )
-
+            )
+        //            )
+        
     }
 }
 
@@ -138,7 +146,7 @@ struct ListCellView: View {
             Text(info)
                 .font(Font.system(size: 18))
                 .lineLimit(2)
-                                        
+            
             NavigationLink(country, destination: DestinationDetailsView())
                 .fontWeight(.semibold)
             
@@ -146,6 +154,27 @@ struct ListCellView: View {
                 .font(.subheadline)
                 .opacity(0.7)
         }
+    }
+}
+
+
+struct randomFactsButton: View {
+    var body: some View {
+        Button {
+            
+        } label: {
+            Image(systemName: "magnifyingglass")
+                .resizable()
+                .frame(width: 28, height: 28)
+                .font(.title.weight(.semibold))
+                .padding()
+                .background(Color(red: 1.00, green: 0.46, blue: 0.23))
+                .opacity(0.9)
+                .foregroundColor(.white)
+                .clipShape(Circle())
+                .shadow(color: .white, radius: 4, x: 0.1, y: 0.1)
+        }
+        .padding()
     }
 }
 
