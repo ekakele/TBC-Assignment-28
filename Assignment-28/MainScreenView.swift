@@ -8,32 +8,45 @@
 import SwiftUI
 
 struct MainScreenView: View {
+    let travelDestinations = TravelDestinationList.topWinterDestinations
+    
     var body: some View {
         
         NavigationView {
-            List {
-                NavigationLink("details page", destination: DestinationDetailsView())
+            VStack(spacing: 0) {
                 
-                NavigationLink("list item title", destination: Text("Second page title"))
+                Image("posterOne")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.horizontal, 20)
+                    .shadow(radius: 10)
                 
-                NavigationLink("list item title", destination: Text("Second page title"))
+                Text("Winter Hot Deals 🔥")
+                    .font(.title2)
+                    .bold()
+                    .lineLimit(2)
+                    .padding(.bottom, 6)
+
+                Divider()
                 
-                NavigationLink("list item title", destination: Text("Second page title"))
-            }
-            .background(Color.yellow)
-            .navigationTitle("Travel Destinations")
-            .navigationBarItems(
-                leading: userAvatarView(),
-                trailing: notificationIconView()
-            )
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Welcome back, Nick!")
+                List(travelDestinations) { destination in
+                    ListCellView(info: destination.info, country: destination.country, dealDeadline: destination.dealDeadline)
+                        .listRowBackground(Color.clear)
+                }
+                .listStyle(PlainListStyle())
+                .navigationTitle("Travel Destinations")
+                .navigationBarItems(
+                    leading: userAvatarView(),
+                    trailing: notificationIconView()
+                )
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text("Welcome back, Nick!")
+                    }
                 }
             }
+            
         }
-        
-        
     }
 }
 
@@ -81,10 +94,8 @@ struct notificationIconView: View {
                                     .offset(x: 8, y: -10)
                             )
                     )
-                
             )
-        
-        
+
     }
 }
 
@@ -104,6 +115,28 @@ struct DestinationDetailsView: View {
                 
                 NavigationLink("Hotels", destination: Text("Hotels"))
             }
+        }
+    }
+}
+
+struct ListCellView: View {
+    //MARK: Properties
+    let info: String
+    let country: String
+    let dealDeadline: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(info)
+                .font(Font.system(size: 18))
+                .lineLimit(2)
+                                        
+            NavigationLink(country, destination: DestinationDetailsView())
+                .fontWeight(.semibold)
+            
+            Text(dealDeadline)
+                .font(.subheadline)
+                .opacity(0.7)
         }
     }
 }
