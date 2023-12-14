@@ -12,10 +12,10 @@ struct MainScreenView: View {
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             ZStack(alignment: .bottomTrailing) {
                 
-                VStack(spacing: 0) {
+                 VStack(spacing: 0) {
                     
                     Image("posterOne")
                         .resizable()
@@ -37,6 +37,7 @@ struct MainScreenView: View {
                                 .listRowBackground(Color.clear)
                         }
                     }
+//                     destinaton
                     .onAppear {
                         viewModel.fetchTravelDestinations()
                     }
@@ -108,26 +109,6 @@ struct notificationIconView: View {
     }
 }
 
-
-
-struct DestinationDetailsView: View {
-    var body: some View {
-        ZStack {
-            Color.indigo
-                .edgesIgnoringSafeArea(.all)
-                .navigationTitle("Details Page")
-            
-            VStack {
-                NavigationLink("Transport", destination: Text("Transport Page"))
-                
-                NavigationLink("Must See", destination: Text("Must See"))
-                
-                NavigationLink("Hotels", destination: Text("Hotels"))
-            }
-        }
-    }
-}
-
 struct ListCellView: View {
     //MARK: Properties
     let info: String
@@ -140,8 +121,12 @@ struct ListCellView: View {
                 .font(Font.system(size: 18))
                 .lineLimit(2)
             
-            NavigationLink(location, destination: DestinationDetailsView())
+            NavigationLink(location, destination: DetailsScreenView(viewModel: DetailsScreenViewModel()))
                 .fontWeight(.semibold)
+            
+//            Navigaton
+            
+            
             
             Text(dealDeadline)
                 .font(.subheadline)
@@ -184,3 +169,30 @@ struct randomTravelTipsButton: View {
 #Preview {
     MainScreenView(viewModel: MainScreenViewModel())
 }
+
+
+
+//struct DestinationDetailsView: View {
+//    
+//    
+//    var body: some View {
+//        ZStack {
+//            Color.indigo
+//                .edgesIgnoringSafeArea(.all)
+//                .navigationTitle("Details Page")
+//            
+//            VStack {
+////                NavigationLink {
+////                    DetailsScreenView()
+////                } label: {
+////                    Text("Details")
+////                }
+//                NavigationLink("Transport", destination: Text("Transport Page"))
+//                
+//                NavigationLink("Must See", destination: Text("Must See"))
+//                
+//                NavigationLink("Hotels", destination: Text("Hotels"))
+//            }
+//        }
+//    }
+//}
