@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 final class MainScreenViewModel: ObservableObject {
     //MARK: - Properties
@@ -52,13 +51,8 @@ final class MainScreenViewModel: ObservableObject {
         }
     }
     
-    func getRandomTipsAlert() -> Alert {
+    func getRandomTipsAlert() -> String {
         let randomIndex = Int.random(in: 0..<travelTips.count)
-        let randomTravelTip = travelTips[randomIndex]
-
-        return Alert(
-            title: Text("Random Travel Tips"),
-            message: Text(randomTravelTip)
-        )
+        return travelTips[randomIndex]
     }
 }

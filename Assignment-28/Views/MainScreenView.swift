@@ -190,7 +190,10 @@ struct randomTipsButton: View {
         }
         .padding()
         .alert(isPresented: $showAlert, content: {
-            viewModel.getRandomTipsAlert()
+            Alert(
+                title: Text("💡Random Travel Tips"),
+                message: Text(viewModel.getRandomTipsAlert())
+            )
         })
     }
 }
