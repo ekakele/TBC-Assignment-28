@@ -9,12 +9,6 @@ import SwiftUI
 
 struct MainScreenView: View {
     @ObservedObject var viewModel: MainScreenViewModel
-    //
-    //    init(viewModel: MainScreenViewModel) {
-    //        self.viewModel = viewModel
-    //    }
-    
-    //    let travelDestinations = TravelDestinationList.topWinterDestinations
     
     var body: some View {
         
@@ -60,13 +54,10 @@ struct MainScreenView: View {
                         }
                     }
                 }
-                
-                
                 .background(Color(red: 0.16, green: 0.20, blue: 0.25))
                 .foregroundColor(.white)
                 
-                randomTipsButton(viewModel: MainScreenViewModel())
-                
+                randomTravelTipsButton(viewModel: MainScreenViewModel())
             }
         }
     }
@@ -94,12 +85,6 @@ struct userAvatarView: View {
 
 struct notificationIconView: View {
     var body: some View {
-        //        Circle()
-        //            .frame(width: 60, height: 60)
-        //            .foregroundColor(Color(red: 0.79, green: 0.83, blue: 0.89))
-        //            .opacity(0.8)
-        //            .shadow(color: Color.gray, radius: 5, x: 0, y: 0)
-        //            .overlay(
         Image(systemName: "bell")
             .resizable()
             .frame(width: 26, height: 26)
@@ -120,8 +105,6 @@ struct notificationIconView: View {
                             .offset(x: 10, y: -10)
                     )
             )
-        //            )
-        
     }
 }
 
@@ -168,10 +151,10 @@ struct ListCellView: View {
 }
 
 //alert
-struct randomTipsButton: View {
+struct randomTravelTipsButton: View {
     @State var showAlert: Bool = false
     @ObservedObject var viewModel: MainScreenViewModel
-
+    
     
     var body: some View {
         Button {

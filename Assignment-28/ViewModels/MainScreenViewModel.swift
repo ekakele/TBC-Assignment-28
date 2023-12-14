@@ -24,7 +24,7 @@ final class MainScreenViewModel: ObservableObject {
     }
     
     func fetchTravelDestinations() {
-        networkManager.fetchData(endpoint: "2b987ee7-0537-4500-a97b-23553e0b8821") { (result: Result<DestinationModel, Error>) in
+        networkManager.fetchData(endpoint: "2e196633-1137-4b41-a190-5374539b5cd3") { (result: Result<DestinationModel, Error>) in
             switch result {
             case .success(let destinations):
                 DispatchQueue.main.async {
