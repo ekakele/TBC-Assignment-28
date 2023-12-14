@@ -53,9 +53,12 @@ final class MainScreenViewModel: ObservableObject {
     }
     
     func getRandomTipsAlert() -> Alert {
+        let randomIndex = Int.random(in: 0..<travelTips.count)
+        let randomTravelTip = travelTips[randomIndex]
+
         return Alert(
             title: Text("Random Travel Tips"),
-            message: Text("ola")
+            message: Text(randomTravelTip)
         )
     }
 }
