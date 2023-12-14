@@ -11,7 +11,6 @@ import SwiftUI
 struct Assignment_28App: App {
     @StateObject private var mainSceneViewModel = MainScreenViewModel()
 
-    
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor.white]
     }

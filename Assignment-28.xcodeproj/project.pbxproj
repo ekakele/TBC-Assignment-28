@@ -52,13 +52,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B511829C2B2AFEE800BDEDF2 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		B511829D2B2AFF0600BDEDF2 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +84,6 @@
 				B5ECB97E2B2BC02900761260 /* NetworkManager */,
 				B5F3DB772B2A6F0000404F25 /* Models */,
 				B5ECB97C2B2BBFC100761260 /* Scenes */,
-				B511829C2B2AFEE800BDEDF2 /* ViewModels */,
 				B5EA64EA2B29E4C100AA6881 /* Assets.xcassets */,
 				B5F3DB7A2B2A770700404F25 /* draft.swift */,
 				B5EA64EC2B29E4C100AA6881 /* Preview Content */,
