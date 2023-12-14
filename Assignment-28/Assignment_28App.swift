@@ -9,13 +9,17 @@ import SwiftUI
 
 @main
 struct Assignment_28App: App {
+    @StateObject private var mainSceneViewModel = MainScreenViewModel()
+
+    
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor.white]
     }
     
     var body: some Scene {
         WindowGroup {
-            MainScreenView()
+            MainScreenView(viewModel: mainSceneViewModel)
+                .environmentObject(mainSceneViewModel)
         }
     }
 }

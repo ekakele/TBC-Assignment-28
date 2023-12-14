@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct MainScreenView: View {
-    let travelDestinations = TravelDestinationList.topWinterDestinations
+    @ObservedObject var viewModel: MainScreenViewModel
+    //
+    //    init(viewModel: MainScreenViewModel) {
+    //        self.viewModel = viewModel
+    //    }
+    
+    //    let travelDestinations = TravelDestinationList.topWinterDestinations
     
     var body: some View {
         
@@ -31,15 +37,17 @@ struct MainScreenView: View {
                     
                     Divider()
                     
-                    List(travelDestinations) { destination in
-                        ListCellView(info: destination.info, location: destination.location, dealDeadline: destination.dealDeadline)
-                            .listRowBackground(Color.clear)
+                    List {
+                        ForEach(viewModel.travelDestinations, id: \.self) { destination in
+                            ListCellView(info: destination.info, location: destination.location, dealDeadline: destination.dealDeadline)
+                                .listRowBackground(Color.clear)
+                        }
+                    }
+                    .onAppear {
+                        viewModel.fetchTravelDestinations()
                     }
                     .listStyle(PlainListStyle())
                     .navigationTitle("Travel Destinations")
-                    //                .safeAreaInset(edge: .bottom, spacing: 0) {
-                    //                    floatingButtonRandomFacts()
-                    //                }
                     .navigationBarItems(
                         leading: userAvatarView(),
                         trailing: notificationIconView()
@@ -52,6 +60,8 @@ struct MainScreenView: View {
                         }
                     }
                 }
+                
+                
                 .background(Color(red: 0.16, green: 0.20, blue: 0.25))
                 .foregroundColor(.white)
                 
@@ -178,5 +188,5 @@ struct randomTipsButton: View {
 }
 
 #Preview {
-    MainScreenView()
+    MainScreenView(viewModel: MainScreenViewModel())
 }
