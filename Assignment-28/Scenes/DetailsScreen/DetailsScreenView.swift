@@ -14,6 +14,8 @@ struct DetailsScreenView: View {
         
         NavigationStack {
             ZStack {
+                Color(red: 0.16, green: 0.20, blue: 0.25)
+                .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 6) {
                     Image("posterTwo")
@@ -43,18 +45,17 @@ struct DetailsScreenView: View {
                     
                     HStack {
                         CustomButton(action: {
-                        }, label: "Transport", destination: TransportView())
+                        }, label: "Transport", destination: TransportView(transports: viewModel.destination.details.transport))
 
                         CustomButton(action: {
-                        }, label: "Must See", destination: MustSeeView())
+                        }, label: "Must See", destination: MustSeeView(mustSees: viewModel.destination.details.mustSee))
 
                         CustomButton(action: {
-                        }, label: "Hotels", destination: HotelsView())
+                        }, label: "Hotels", destination: HotelsView(hotels: viewModel.destination.details.hotels))
                     }
                     
                     Spacer()
                 }
-                .background(Color(red: 0.16, green: 0.20, blue: 0.25))
                 .foregroundColor(.white)
                 .navigationTitle("Details Page")
             }
@@ -84,42 +85,42 @@ struct CustomButton<Destination: View>: View {
 }
 
 
-struct TransportView: View {
-    
-    var body: some View {
-        VStack {
-            Text("Transport View")
-                .font(.title)
-                .padding()
-            Text("This is the Transport view.")
-        }
-    }
-}
+//struct TransportView: View {
+//    
+//    var body: some View {
+//        VStack {
+//            Text("Transport View")
+//                .font(.title)
+//                .padding()
+//            Text("This is the Transport view.")
+//        }
+//    }
+//}
 
-struct MustSeeView: View {
-    var body: some View {
-        VStack {
-            Text("Must See View")
-                .font(.title)
-                .padding()
-            Text("This is the Must See view.")
-        }
-    }
-}
+//struct MustSeeView: View {
+//    var body: some View {
+//        VStack {
+//            Text("Must See View")
+//                .font(.title)
+//                .padding()
+//            Text("This is the Must See view.")
+//        }
+//    }
+//}
 
-struct HotelsView: View {
-    var body: some View {
-        VStack {
-            Text("Hotels View")
-                .font(.title)
-                .padding()
-            Text("This is the Hotels view.")
-        }
-    }
-}
+//struct HotelsView: View {
+//    var body: some View {
+//        VStack {
+//            Text("Hotels View")
+//                .font(.title)
+//                .padding()
+//            Text("This is the Hotels view.")
+//        }
+//    }
+//}
 
 
 
-#Preview {
-    DetailsScreenView(viewModel: DetailsScreenViewModel())
-}
+//#Preview {
+//    DetailsScreenView(viewModel: DetailsScreenViewModel(destination: <#TopWinterDestination#>))
+//}

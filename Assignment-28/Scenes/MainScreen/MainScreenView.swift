@@ -33,7 +33,7 @@ struct MainScreenView: View {
                     
                     List {
                         ForEach(viewModel.travelDestinations, id: \.self) { destination in
-                            ListCellView(info: destination.info, location: destination.location, dealDeadline: destination.dealDeadline)
+                            ListCellView(destination: destination)
                                 .listRowBackground(Color.clear)
                         }
                     }
@@ -111,24 +111,20 @@ struct notificationIconView: View {
 
 struct ListCellView: View {
     //MARK: Properties
-    let info: String
-    let location: String
-    let dealDeadline: String
-    
+    let destination: TopWinterDestination
+
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text(info)
+            Text(destination.info)
                 .font(Font.system(size: 18))
                 .lineLimit(2)
             
-            NavigationLink(location, destination: DetailsScreenView(viewModel: DetailsScreenViewModel()))
+            NavigationLink(destination.location, destination: DetailsScreenView(viewModel: DetailsScreenViewModel(destination: destination)))
                 .fontWeight(.semibold)
             
 //            Navigaton
             
-            
-            
-            Text(dealDeadline)
+            Text(destination.dealDeadline)
                 .font(.subheadline)
                 .opacity(0.7)
         }
@@ -169,30 +165,3 @@ struct randomTravelTipsButton: View {
 #Preview {
     MainScreenView(viewModel: MainScreenViewModel())
 }
-
-
-
-//struct DestinationDetailsView: View {
-//    
-//    
-//    var body: some View {
-//        ZStack {
-//            Color.indigo
-//                .edgesIgnoringSafeArea(.all)
-//                .navigationTitle("Details Page")
-//            
-//            VStack {
-////                NavigationLink {
-////                    DetailsScreenView()
-////                } label: {
-////                    Text("Details")
-////                }
-//                NavigationLink("Transport", destination: Text("Transport Page"))
-//                
-//                NavigationLink("Must See", destination: Text("Must See"))
-//                
-//                NavigationLink("Hotels", destination: Text("Hotels"))
-//            }
-//        }
-//    }
-//}

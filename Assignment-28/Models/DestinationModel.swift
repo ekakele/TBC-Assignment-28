@@ -44,10 +44,12 @@ struct Hotel: Decodable, Hashable {
 
 // MARK: - MustSee
 struct MustSee: Decodable, Hashable {
-    let place, details: String
+    let place: String
+    let details: String
 }
 
 // MARK: - Transport
 struct Transport: Decodable, Hashable {
-    let mode, details: String
+    let mode: String
+    let details: String
 }

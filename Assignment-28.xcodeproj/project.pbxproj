@@ -10,6 +10,9 @@
 		B511829F2B2B057200BDEDF2 /* DetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B511829E2B2B057200BDEDF2 /* DetailsScreenView.swift */; };
 		B51182A12B2B0BDC00BDEDF2 /* DetailsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51182A02B2B0BDC00BDEDF2 /* DetailsScreenViewModel.swift */; };
 		B562D8812B2A17A300DA1E55 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B562D8802B2A17A300DA1E55 /* MainScreenView.swift */; };
+		B59CA9BC2B2B9EE800295308 /* TransportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59CA9BB2B2B9EE800295308 /* TransportView.swift */; };
+		B59CA9BE2B2B9EF600295308 /* MustSeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59CA9BD2B2B9EF600295308 /* MustSeeView.swift */; };
+		B59CA9C02B2B9F0300295308 /* HotelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59CA9BF2B2B9F0300295308 /* HotelsView.swift */; };
 		B5EA64E72B29E4C000AA6881 /* Assignment_28App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EA64E62B29E4C000AA6881 /* Assignment_28App.swift */; };
 		B5EA64EB2B29E4C100AA6881 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EA64EA2B29E4C100AA6881 /* Assets.xcassets */; };
 		B5EA64EE2B29E4C100AA6881 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EA64ED2B29E4C100AA6881 /* Preview Assets.xcassets */; };
@@ -24,6 +27,9 @@
 		B511829E2B2B057200BDEDF2 /* DetailsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenView.swift; sourceTree = "<group>"; };
 		B51182A02B2B0BDC00BDEDF2 /* DetailsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewModel.swift; sourceTree = "<group>"; };
 		B562D8802B2A17A300DA1E55 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		B59CA9BB2B2B9EE800295308 /* TransportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportView.swift; sourceTree = "<group>"; };
+		B59CA9BD2B2B9EF600295308 /* MustSeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MustSeeView.swift; sourceTree = "<group>"; };
+		B59CA9BF2B2B9F0300295308 /* HotelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelsView.swift; sourceTree = "<group>"; };
 		B5EA64E32B29E4C000AA6881 /* Assignment-28.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment-28.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EA64E62B29E4C000AA6881 /* Assignment_28App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment_28App.swift; sourceTree = "<group>"; };
 		B5EA64EA2B29E4C100AA6881 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,19 +55,17 @@
 		B511829C2B2AFEE800BDEDF2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B5F3DB752B2A6E6C00404F25 /* MainScreenViewModel.swift */,
-				B51182A02B2B0BDC00BDEDF2 /* DetailsScreenViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		B511829D2B2AFF0600BDEDF2 /* Views */ = {
+		B511829D2B2AFF0600BDEDF2 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
 				B562D8802B2A17A300DA1E55 /* MainScreenView.swift */,
-				B511829E2B2B057200BDEDF2 /* DetailsScreenView.swift */,
+				B5F3DB752B2A6E6C00404F25 /* MainScreenViewModel.swift */,
 			);
-			path = Views;
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 		B5EA64DA2B29E4C000AA6881 = {
@@ -83,10 +87,10 @@
 		B5EA64E52B29E4C000AA6881 /* Assignment-28 */ = {
 			isa = PBXGroup;
 			children = (
-				B5EA64E62B29E4C000AA6881 /* Assignment_28App.swift */,
-				B5F3DB732B2A6B9A00404F25 /* NetworkManager.swift */,
+				B5ECB97F2B2BC02F00761260 /* App */,
+				B5ECB97E2B2BC02900761260 /* NetworkManager */,
 				B5F3DB772B2A6F0000404F25 /* Models */,
-				B511829D2B2AFF0600BDEDF2 /* Views */,
+				B5ECB97C2B2BBFC100761260 /* Scenes */,
 				B511829C2B2AFEE800BDEDF2 /* ViewModels */,
 				B5EA64EA2B29E4C100AA6881 /* Assets.xcassets */,
 				B5F3DB7A2B2A770700404F25 /* draft.swift */,
@@ -101,6 +105,51 @@
 				B5EA64ED2B29E4C100AA6881 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B5ECB97B2B2B9F5B00761260 /* SubScenes */ = {
+			isa = PBXGroup;
+			children = (
+				B59CA9BB2B2B9EE800295308 /* TransportView.swift */,
+				B59CA9BD2B2B9EF600295308 /* MustSeeView.swift */,
+				B59CA9BF2B2B9F0300295308 /* HotelsView.swift */,
+			);
+			path = SubScenes;
+			sourceTree = "<group>";
+		};
+		B5ECB97C2B2BBFC100761260 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B511829D2B2AFF0600BDEDF2 /* MainScreen */,
+				B5ECB97D2B2BBFE200761260 /* DetailsScreen */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B5ECB97D2B2BBFE200761260 /* DetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B511829E2B2B057200BDEDF2 /* DetailsScreenView.swift */,
+				B51182A02B2B0BDC00BDEDF2 /* DetailsScreenViewModel.swift */,
+				B5ECB97B2B2B9F5B00761260 /* SubScenes */,
+			);
+			path = DetailsScreen;
+			sourceTree = "<group>";
+		};
+		B5ECB97E2B2BC02900761260 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				B5F3DB732B2A6B9A00404F25 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		B5ECB97F2B2BC02F00761260 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B5EA64E62B29E4C000AA6881 /* Assignment_28App.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		B5F3DB772B2A6F0000404F25 /* Models */ = {
@@ -186,8 +235,11 @@
 				B51182A12B2B0BDC00BDEDF2 /* DetailsScreenViewModel.swift in Sources */,
 				B5F3DB7B2B2A770700404F25 /* draft.swift in Sources */,
 				B5F3DB762B2A6E6C00404F25 /* MainScreenViewModel.swift in Sources */,
+				B59CA9BE2B2B9EF600295308 /* MustSeeView.swift in Sources */,
+				B59CA9C02B2B9F0300295308 /* HotelsView.swift in Sources */,
 				B511829F2B2B057200BDEDF2 /* DetailsScreenView.swift in Sources */,
 				B5F3DB722B2A335700404F25 /* DestinationModel.swift in Sources */,
+				B59CA9BC2B2B9EE800295308 /* TransportView.swift in Sources */,
 				B5F3DB792B2A6F1900404F25 /* TipModel.swift in Sources */,
 				B562D8812B2A17A300DA1E55 /* MainScreenView.swift in Sources */,
 				B5EA64E72B29E4C000AA6881 /* Assignment_28App.swift in Sources */,

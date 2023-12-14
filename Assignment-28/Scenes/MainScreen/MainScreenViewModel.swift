@@ -11,8 +11,6 @@ final class MainScreenViewModel: ObservableObject {
     //MARK: - Properties
     private var networkManager: NetworkManager
     @Published var travelDestinations: [TopWinterDestination] = []
-    
-    
     @Published var travelTips: [String] = []
     
     //MARK: - Init
