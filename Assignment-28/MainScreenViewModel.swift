@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class MainScreenViewModel: ObservableObject {
     //MARK: - Properties
@@ -49,5 +50,12 @@ final class MainScreenViewModel: ObservableObject {
                 print("Error fetching items: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func getRandomTipsAlert() -> Alert {
+        return Alert(
+            title: Text("Random Travel Tips"),
+            message: Text("ola")
+        )
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TipModel: Decodable {
+struct TipModel: Decodable, Hashable {
     let travelTips: [String]
 
     enum CodingKeys: String, CodingKey {

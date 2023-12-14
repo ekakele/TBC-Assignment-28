@@ -65,7 +65,7 @@ struct MainScreenView: View {
                 .background(Color(red: 0.16, green: 0.20, blue: 0.25))
                 .foregroundColor(.white)
                 
-                randomTipsButton()
+                randomTipsButton(viewModel: MainScreenViewModel())
                 
             }
         }
@@ -167,10 +167,15 @@ struct ListCellView: View {
     }
 }
 
-
+//alert
 struct randomTipsButton: View {
+    @State var showAlert: Bool = false
+    @ObservedObject var viewModel: MainScreenViewModel
+
+    
     var body: some View {
         Button {
+            showAlert.toggle()
         } label: {
             Image(systemName: "lightbulb")
                 .resizable()
@@ -184,6 +189,9 @@ struct randomTipsButton: View {
                 .shadow(color: .yellow, radius: 4, x: 0.1, y: 0.1)
         }
         .padding()
+        .alert(isPresented: $showAlert, content: {
+            viewModel.getRandomTipsAlert()
+        })
     }
 }
 
