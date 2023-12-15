@@ -22,6 +22,7 @@ final class MainScreenViewModel: ObservableObject {
         fetchTravelTips()
     }
     
+    // MARK: - Methods
     func fetchTravelDestinations() {
         networkManager.fetchData(endpoint: "2bbe2b00-e979-4c2a-90a5-fcad455b5df5") { (result: Result<DestinationModel, Error>) in
             switch result {
@@ -35,7 +36,7 @@ final class MainScreenViewModel: ObservableObject {
             }
         }
     }
-
+    
     func fetchTravelTips() {
         networkManager.fetchData(endpoint: "c56f0d84-7989-413b-a74b-faffe5625eb5") { (result: Result<TipModel, Error>) in
             switch result {

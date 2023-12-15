@@ -11,6 +11,7 @@ final class DetailsScreenViewModel: ObservableObject {
     //MARK: - Properties
     @Published var destination: TopWinterDestination
     
+    // MARK: - Init
     init(destination: TopWinterDestination) {
         self.destination = destination
     }

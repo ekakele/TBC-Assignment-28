@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct TransportView: View {
+    // MARK: - Properties
     var transports: [Transport]
     
+    // MARK: - Body
     var body: some View {
         NavigationStack {
             ZStack {
@@ -61,7 +63,7 @@ struct TransportView: View {
     }
 }
 
-//mock Preview
+// MARK: - Mock Preview
 struct TransportView_Previews: PreviewProvider {
     static var previews: some View {
         let mockTransports = [
@@ -74,7 +76,7 @@ struct TransportView_Previews: PreviewProvider {
     }
 }
 
-
+// MARK: - Preview
 //#Preview {
 //    TransportView()
 //}

@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct MainScreenView: View {
+    // MARK: - Properties
     @ObservedObject var viewModel: MainScreenViewModel
     
+    // MARK: - Body
     var body: some View {
-        
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
-                
-                 VStack(spacing: 0) {
-                    
+                VStack(spacing: 0) {
                     Image("posterOne")
                         .resizable()
                         .scaledToFit()
@@ -37,7 +36,7 @@ struct MainScreenView: View {
                                 .listRowBackground(Color.clear)
                         }
                     }
-//                     destinaton
+                    //                     destinaton
                     .onAppear {
                         viewModel.fetchTravelDestinations()
                     }
@@ -64,8 +63,8 @@ struct MainScreenView: View {
     }
 }
 
-//stays with main view
 struct userAvatarView: View {
+    // MARK: - Body
     var body: some View {
         Circle()
             .frame(width: 55, height: 55)
@@ -85,6 +84,7 @@ struct userAvatarView: View {
 }
 
 struct notificationIconView: View {
+    // MARK: - Body
     var body: some View {
         Image(systemName: "bell")
             .resizable()
@@ -92,7 +92,6 @@ struct notificationIconView: View {
             .foregroundColor(.white)
             .opacity(0.8)
             .shadow(color: Color.gray, radius: 5, x: 0, y: 0)
-        
             .overlay(
                 Circle()
                     .frame(width: 20, height: 20)
@@ -112,7 +111,8 @@ struct notificationIconView: View {
 struct ListCellView: View {
     //MARK: Properties
     let destination: TopWinterDestination
-
+    
+    // MARK: - Body
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(destination.info)
@@ -122,7 +122,7 @@ struct ListCellView: View {
             NavigationLink(destination.location, destination: DetailsScreenView(viewModel: DetailsScreenViewModel(destination: destination)))
                 .fontWeight(.semibold)
             
-//            Navigaton
+            //            Navigaton
             
             Text(destination.dealDeadline)
                 .font(.subheadline)
@@ -131,12 +131,12 @@ struct ListCellView: View {
     }
 }
 
-//alert
 struct randomTravelTipsButton: View {
+    // MARK: - Properties
     @State var showAlert: Bool = false
     @ObservedObject var viewModel: MainScreenViewModel
     
-    
+    // MARK: - Body
     var body: some View {
         Button {
             showAlert.toggle()
@@ -162,6 +162,7 @@ struct randomTravelTipsButton: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     MainScreenView(viewModel: MainScreenViewModel())
 }

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct MustSeeView: View {
+    // MARK: - Properties
     var mustSees: [MustSee]
     
+    // MARK: - Body
     var body: some View {
         NavigationStack {
             ZStack {
@@ -61,7 +63,7 @@ struct MustSeeView: View {
     }
 }
 
-//mock Preview
+// MARK: - Mock Preview
 struct MustSeeView_Previews: PreviewProvider {
     static var previews: some View {
         let mockMustSees = [
@@ -74,7 +76,7 @@ struct MustSeeView_Previews: PreviewProvider {
     }
 }
 
-
+// MARK: - Preview
 //#Preview {
 //    MustSeeView()
 //}

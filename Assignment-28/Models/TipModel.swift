@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Tip
 struct TipModel: Decodable, Hashable {
     let travelTips: [String]
 

@@ -8,17 +8,16 @@
 import SwiftUI
 
 final class NetworkManager {
-    //    static let shared = NetworkManager()
-    
+    // MARK: - Properties
     private let baseURL: String
     private let endpoint = ""
     
-    //    private init() {}
-    
+    // MARK: - Init
     init(baseURL: String) {
         self.baseURL = baseURL
     }
     
+    // MARK: - Methods
     public func fetchData<T: Decodable>(endpoint: String, completion: @escaping (Result<T, Error>) -> Void) {
         let urlString = "\(baseURL + endpoint)"
         

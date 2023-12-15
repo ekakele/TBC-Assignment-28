@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct HotelsView: View {
+    // MARK: - Properties
     var hotels: [Hotel]
     
+    // MARK: - Body
     var body: some View {
         NavigationStack {
             ZStack {
@@ -69,7 +71,7 @@ struct HotelsView: View {
     }
 }
 
-//mock Preview
+// MARK: - Mock Preview
 struct HotelsView_Previews: PreviewProvider {
     static var previews: some View {
         let mockHotels = [
@@ -82,7 +84,7 @@ struct HotelsView_Previews: PreviewProvider {
     }
 }
 
-
+// MARK: - Preview
 //#Preview {
 //    HotelsView()
 //}

@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct DetailsScreenView: View {
+    // MARK: - Properties
     @ObservedObject var viewModel: DetailsScreenViewModel
     
+    // MARK: - Body
     var body: some View {
-        
         NavigationStack {
             ZStack {
                 Color(red: 0.16, green: 0.20, blue: 0.25)
@@ -28,11 +29,11 @@ struct DetailsScreenView: View {
                                 .shadow(radius: 10)
                                 .cornerRadius(4)
                                 .padding(.top, 20)
-
+                            
                         }, placeholder: {
                             ProgressView()
                         })
-
+                    
                     Spacer()
                     
                     Text("General Info")
@@ -79,11 +80,13 @@ struct DetailsScreenView: View {
 }
 
 struct CustomButton<Destination: View>: View {
+    // MARK: - Properties
     var action: () -> Void
     var label: String
     var icon: String
     var destination: Destination
     
+    // MARK: - Body
     var body: some View {
         Button(action: action) {
             NavigationLink(destination: destination) {
@@ -111,7 +114,7 @@ struct CustomButton<Destination: View>: View {
     }
 }
 
-//mock Preview
+// MARK: - Mock Preview
 //struct DetailsScreenPreview: PreviewProvider {
 //    static var previews: some View {
 //        DetailsScreenView(viewModel: DetailsScreenViewModel(destination: mockData().topWinterDestinations.first!))
@@ -138,7 +141,7 @@ struct CustomButton<Destination: View>: View {
 //    }
 //}
 
+// MARK: - Preview
 #Preview {
     MainScreenView(viewModel: MainScreenViewModel())
-    //    DetailsScreenView(viewModel: DetailsScreenViewModel(destination: <#TopWinterDestination#>))
 }
