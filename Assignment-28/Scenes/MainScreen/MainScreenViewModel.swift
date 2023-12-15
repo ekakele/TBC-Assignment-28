@@ -36,13 +36,13 @@ final class MainScreenViewModel: ObservableObject {
         }
     }
     
-    func downloadImage(for urlString: String) {
-        networkManager.downloadImage(from: urlString) { image in
-            DispatchQueue.main.async {
-                self.downloadedImage = image
-            }
-        }
-    }
+//    func downloadImage(for urlString: String) {
+//        networkManager.downloadImage(from: urlString) { image in
+//            DispatchQueue.main.async {
+//                self.downloadedImage = image
+//            }
+//        }
+//    }
     
     
     func fetchTravelTips() {

@@ -36,7 +36,7 @@ struct MustSeeView: View {
                                     .bold()
                                     .frame(width: 320, alignment: .leading)
                                     .lineLimit(3)
-                                    .foregroundColor(.appOrange)
+                                    .foregroundColor(.orange)
                                 
                                 Spacer()
                                 

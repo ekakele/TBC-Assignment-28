@@ -17,12 +17,22 @@ struct DetailsScreenView: View {
                 Color(red: 0.16, green: 0.20, blue: 0.25)
                     .edgesIgnoringSafeArea(.all)
                 
-                VStack(spacing: 20) {
-                    Image("posterTwo")
-                        .resizable()
-                        .scaledToFit()
-                        .shadow(radius: 10)
+                VStack(spacing: 10) {
+                    let imageURL = URL(string: viewModel.destination.image)
                     
+                    AsyncImage(
+                        url: imageURL,
+                        content: { fetchedImage in
+                            fetchedImage
+                                .resizable()
+                                .shadow(radius: 10)
+                                .cornerRadius(4)
+                                .padding(.top, 20)
+
+                        }, placeholder: {
+                            ProgressView()
+                        })
+
                     Spacer()
                     
                     Text("General Info")
@@ -31,7 +41,7 @@ struct DetailsScreenView: View {
                         .frame(width: 350, alignment: .leading)
                         .padding(.vertical, 10)
                     
-                    Text("info text")
+                    Text(viewModel.destination.details.generalInfo)
                         .font(.system(size: 20))
                         .frame(width: 320, alignment: .leading)
                         .padding(.horizontal)
@@ -77,56 +87,58 @@ struct CustomButton<Destination: View>: View {
     var body: some View {
         Button(action: action) {
             NavigationLink(destination: destination) {
-                            VStack(spacing: 8) {
-                                Image(systemName: icon)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .foregroundColor(.white)
-                                    .frame(width: 40, height: 40)
-                                
-                                Text(label)
-                                    .font(.system(size: 14))
-                                    .bold()
-                                    .foregroundColor(.white)
-                                    .multilineTextAlignment(.center)
-                                    .lineLimit(2)
-                            }
-                            .frame(width: 85)
-                            .padding()
-                            .background(Color.appOrange.cornerRadius(6))
-                            .opacity(0.7)
-                        }
-                    }
+                VStack(spacing: 8) {
+                    Image(systemName: icon)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.white)
+                        .frame(width: 40, height: 40)
+                    
+                    Text(label)
+                        .font(.system(size: 14))
+                        .bold()
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
                 }
+                .frame(width: 75)
+                .padding()
+                .background(Color.orange.cornerRadius(6))
+                .opacity(0.8)
+                .shadow(radius: 10)
             }
-
-//mock Preview
-struct DetailsScreenPreview: PreviewProvider {
-    static var previews: some View {
-        DetailsScreenView(viewModel: DetailsScreenViewModel(destination: mockData().topWinterDestinations.first!))
-    }
-    
-    static func mockData() -> DestinationModel {
-        let transport1 = Transport(mode: "Airplane", details: "Direct flight available")
-        let transport2 = Transport(mode: "Train", details: "Scenic route with comfortable seating")
-        
-        let mustSee1 = MustSee(place: "Snowy Mountains", details: "Breathtaking views and skiing opportunities")
-        let mustSee2 = MustSee(place: "Ice Sculpture Festival", details: "Artistic creations made of ice")
-        
-        let hotel1 = Hotel(name: "Winter Lodge", rating: 4, details: "Cozy rooms with fireplace")
-        let hotel2 = Hotel(name: "Frosty Retreat", rating: 5, details: "Luxurious accommodations with spa")
-        
-        let details = Details(
-            transport: [transport1, transport2],
-            mustSee: [mustSee1, mustSee2],
-            hotels: [hotel1, hotel2],
-            generalInfo: "Experience the magic of winter in this amazing destination!"
-        )
-        
-        return DestinationModel(topWinterDestinations: [TopWinterDestination(image: "", location: "Winter Wonderland", dealDeadline: "2023-12-31", info: "Explore the beauty of winter", details: details)])
+        }
     }
 }
 
-//#Preview {
-//    DetailsScreenView(viewModel: DetailsScreenViewModel(destination: <#TopWinterDestination#>))
+//mock Preview
+//struct DetailsScreenPreview: PreviewProvider {
+//    static var previews: some View {
+//        DetailsScreenView(viewModel: DetailsScreenViewModel(destination: mockData().topWinterDestinations.first!))
+//    }
+//
+//    static func mockData() -> DestinationModel {
+//        let transport1 = Transport(mode: "Airplane", details: "Direct flight available")
+//        let transport2 = Transport(mode: "Train", details: "Scenic route with comfortable seating")
+//
+//        let mustSee1 = MustSee(place: "Snowy Mountains", details: "Breathtaking views and skiing opportunities")
+//        let mustSee2 = MustSee(place: "Ice Sculpture Festival", details: "Artistic creations made of ice")
+//
+//        let hotel1 = Hotel(name: "Winter Lodge", rating: 4, details: "Cozy rooms with fireplace")
+//        let hotel2 = Hotel(name: "Frosty Retreat", rating: 5, details: "Luxurious accommodations with spa")
+//
+//        let details = Details(
+//            transport: [transport1, transport2],
+//            mustSee: [mustSee1, mustSee2],
+//            hotels: [hotel1, hotel2],
+//            generalInfo: "Experience the magic of winter in this amazing destination!"
+//        )
+//
+//        return DestinationModel(topWinterDestinations: [TopWinterDestination(image: "", location: "Winter Wonderland", dealDeadline: "2023-12-31", info: "Explore the beauty of winter", details: details)])
+//    }
 //}
+
+#Preview {
+    MainScreenView(viewModel: MainScreenViewModel())
+    //    DetailsScreenView(viewModel: DetailsScreenViewModel(destination: <#TopWinterDestination#>))
+}
