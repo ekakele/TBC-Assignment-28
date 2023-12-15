@@ -49,27 +49,4 @@ final class NetworkManager {
             }
         }.resume()
     }
-    
-    
-    // MARK: - Download Image
-//    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
-//        let urlString = "\(baseURL + endpoint)"
-//        
-//        guard let url = URL(string: urlString) else {
-//            completion(nil)
-//            return
-//        }
-//        
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data, error == nil, let image = UIImage(data: data) else {
-//                completion(nil)
-//                return
-//            }
-//            
-//            DispatchQueue.main.async {
-//                completion(image)
-//            }
-//            
-//        }.resume()
-//    }
 }

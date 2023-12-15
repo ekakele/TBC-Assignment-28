@@ -35,16 +35,7 @@ final class MainScreenViewModel: ObservableObject {
             }
         }
     }
-    
-//    func downloadImage(for urlString: String) {
-//        networkManager.downloadImage(from: urlString) { image in
-//            DispatchQueue.main.async {
-//                self.downloadedImage = image
-//            }
-//        }
-//    }
-    
-    
+
     func fetchTravelTips() {
         networkManager.fetchData(endpoint: "c56f0d84-7989-413b-a74b-faffe5625eb5") { (result: Result<TipModel, Error>) in
             switch result {
