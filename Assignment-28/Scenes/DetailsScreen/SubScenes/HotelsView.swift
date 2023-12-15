@@ -17,10 +17,12 @@ struct HotelsView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 20) {
-                    Image("posterTwo")
+                    Image("hotelPoster")
                         .resizable()
                         .scaledToFit()
                         .shadow(radius: 10)
+                        .cornerRadius(4)
+                        .padding(.top, 20)
                     
                     Text("Our Top Picks")
                         .font(.title2)

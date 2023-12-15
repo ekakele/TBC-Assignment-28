@@ -17,10 +17,12 @@ struct TransportView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 20) {
-                    Image("posterTwo")
+                    Image("transportPoster")
                         .resizable()
                         .scaledToFit()
                         .shadow(radius: 10)
+                        .cornerRadius(4)
+                        .padding(.top, 20)
                     
                     Text("Prime Suggestions")
                         .font(.title2)
