@@ -36,7 +36,7 @@ struct TransportView: View {
                                     .bold()
                                     .frame(width: 320, alignment: .leading)
                                     .lineLimit(3)
-                                    .foregroundColor(Color(red: 0.98, green: 0.55, blue: 0.14))
+                                    .foregroundColor(.appOrange)
                                 
                                 Spacer()
                                 

@@ -16,6 +16,7 @@ struct DestinationModel: Decodable, Hashable {
 // MARK: - TopWinterDestination
 struct TopWinterDestination: Decodable, Hashable {
     //    var id = UUID()
+    let image: String
     let location: String
     let dealDeadline: String
     let info: String
@@ -27,11 +28,13 @@ struct Details: Decodable, Hashable {
     let transport: [Transport]
     let mustSee: [MustSee]
     let hotels: [Hotel]
+    let generalInfo: String
     
     enum CodingKeys: String, CodingKey {
         case transport = "Transport"
         case mustSee = "MustSee"
         case hotels = "Hotels"
+        case generalInfo = "GeneralInfo"
     }
 }
 

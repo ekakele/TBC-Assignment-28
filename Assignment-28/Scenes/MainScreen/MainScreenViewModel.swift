@@ -5,13 +5,14 @@
 //  Created by Eka Kelenjeridze on 14.12.23.
 //
 
-import Foundation
+import SwiftUI
 
 final class MainScreenViewModel: ObservableObject {
     //MARK: - Properties
     private var networkManager: NetworkManager
     @Published var travelDestinations: [TopWinterDestination] = []
     @Published var travelTips: [String] = []
+    @Published var downloadedImage: UIImage? = nil
     
     //MARK: - Init
     init() {
@@ -22,7 +23,7 @@ final class MainScreenViewModel: ObservableObject {
     }
     
     func fetchTravelDestinations() {
-        networkManager.fetchData(endpoint: "2e196633-1137-4b41-a190-5374539b5cd3") { (result: Result<DestinationModel, Error>) in
+        networkManager.fetchData(endpoint: "2bbe2b00-e979-4c2a-90a5-fcad455b5df5") { (result: Result<DestinationModel, Error>) in
             switch result {
             case .success(let destinations):
                 DispatchQueue.main.async {
@@ -34,6 +35,15 @@ final class MainScreenViewModel: ObservableObject {
             }
         }
     }
+    
+    func downloadImage(for urlString: String) {
+        networkManager.downloadImage(from: urlString) { image in
+            DispatchQueue.main.async {
+                self.downloadedImage = image
+            }
+        }
+    }
+    
     
     func fetchTravelTips() {
         networkManager.fetchData(endpoint: "c56f0d84-7989-413b-a74b-faffe5625eb5") { (result: Result<TipModel, Error>) in

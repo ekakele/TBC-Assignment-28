@@ -96,7 +96,7 @@ struct notificationIconView: View {
             .overlay(
                 Circle()
                     .frame(width: 20, height: 20)
-                    .foregroundColor(Color(red: 1.00, green: 0.46, blue: 0.23))
+                    .foregroundColor(.appOrange)
                     .offset(x: 10, y: -10)
                     .overlay(
                         Text("3")
@@ -141,14 +141,14 @@ struct randomTravelTipsButton: View {
         Button {
             showAlert.toggle()
         } label: {
-            Image(systemName: "lightbulb")
+            Image(systemName: "lightbulb.max")
                 .resizable()
-                .frame(width: 22, height: 30)
+                .frame(width: 30, height: 30)
                 .font(.title.weight(.semibold))
                 .padding()
-                .background(Color(red: 1.00, green: 0.46, blue: 0.23))
-                .opacity(0.9)
-                .foregroundColor(.white)
+                .background(Color(red: 1.00, green: 0.80, blue: 0.29))
+                .opacity(0.8)
+                .foregroundColor(Color(red: 0.16, green: 0.20, blue: 0.25))
                 .clipShape(Circle())
                 .shadow(color: .yellow, radius: 4, x: 0.1, y: 0.1)
         }

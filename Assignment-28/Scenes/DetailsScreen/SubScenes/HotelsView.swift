@@ -36,7 +36,7 @@ struct HotelsView: View {
                                         .font(.system(size: 20))
                                         .bold()
                                         .lineLimit(3)
-                                        .foregroundColor(Color(red: 0.98, green: 0.55, blue: 0.14))
+                                        .foregroundColor(.appOrange)
                                     
                                     Spacer()
                                     

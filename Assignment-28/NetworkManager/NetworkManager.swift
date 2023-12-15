@@ -5,7 +5,7 @@
 //  Created by Eka Kelenjeridze on 14.12.23.
 //
 
-import Foundation
+import SwiftUI
 
 final class NetworkManager {
     //    static let shared = NetworkManager()
@@ -49,23 +49,27 @@ final class NetworkManager {
             }
         }.resume()
     }
+    
+    
+    // MARK: - Download Image
+    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
+        let urlString = "\(baseURL + endpoint)"
+        
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil, let image = UIImage(data: data) else {
+                completion(nil)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(image)
+            }
+            
+        }.resume()
+    }
 }
-
-
-// MARK: - Download Image Ass.20
-//    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
-//        guard let url = URL(string: urlString) else {
-//            completion(nil)
-//            return
-//        }
-//
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data, error == nil, let image = UIImage(data: data) else {
-//                completion(nil)
-//                return
-//            }
-//
-//            completion(image)
-//        }.resume()
-//    }
-//}
